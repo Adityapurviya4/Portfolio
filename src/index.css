@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 94%;
+    --foreground: 0 0% 0%;
+
+    --card: 40 30% 97%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 62 100% 49%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 40 10% 85%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 144 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 0%;
+    --input: 0 0% 70%;
+    --ring: 0 0% 0%;
+    --radius: 0px;
+
+    /* Custom brutalist tokens */
+    --brutal-shadow: 4px 4px 0px hsl(0 0% 0%);
+    --brutal-shadow-lg: 8px 8px 0px hsl(0 0% 0%);
+    --brutal-shadow-xl: 12px 12px 0px hsl(0 0% 0%);
+
+    --neon-green: 144 100% 50%;
+    --neon-blue: 220 85% 56%;
+    --neon-pink: 340 80% 73%;
+    --neon-orange: 30 100% 50%;
+    --neon-purple: 261 60% 65%;
+
+    --dark-bg: 140 20% 4%;
+    --dark-card: 0 0% 7%;
+    --dark-border: 0 0% 13%;
+
+    --grid-color: 40 15% 83%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+    background-image:
+      linear-gradient(hsl(var(--grid-color)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-color)) 1px, transparent 1px);
+    background-size: 40px 40px;
+    overflow-x: hidden;
+  }
+}
+
+/* Brutalist utility classes */
+@layer components {
+  .brutal-box {
+    @apply border-[3px] border-foreground;
+    box-shadow: var(--brutal-shadow);
+  }
+
+  .brutal-box-lg {
+    @apply border-[3px] border-foreground;
+    box-shadow: var(--brutal-shadow-lg);
+  }
+
+  .brutal-box-xl {
+    @apply border-[4px] border-foreground;
+    box-shadow: var(--brutal-shadow-xl);
+  }
+
+  .brutal-hover {
+    @apply transition-all duration-200;
+  }
+
+  .brutal-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 10px 10px 0px hsl(0 0% 0%);
+  }
+
+  .section-title {
+    @apply text-6xl md:text-7xl font-black;
+  }
+}
+
+/* Ticker animation */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-animate {
+  animation: ticker-scroll 25s linear infinite;
+}
+
+.ticker-animate:hover {
+  animation-play-state: paused;
+}
+
+/* Reveal animation */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-up {
+  animation: reveal-up 0.6s ease forwards;
+}
+
+/* Live dot pulse */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
