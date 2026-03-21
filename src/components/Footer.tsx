@@ -27,12 +27,12 @@ const Footer = () => {
             </ul>
           </div>
 
-        {/* Socials */}
+          {/* Socials */}
           <div>
             <h4 className="text-accent text-xs tracking-widest font-bold mb-5">SOCIALS</h4>
             <div className="flex gap-4">
               {[
-                {label: "GH", href: "https://github.com/Adityapurviya4" },
+                { label: "GH", href: "https://github.com/Adityapurviya4" },
                 { label: "LI", href: "#" },
                 { label: "TW", href: "#" },
               ].map((s) => (
